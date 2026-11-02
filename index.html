@@ -254,6 +254,11 @@
              class="mt-10 inline-flex items-center gap-3 px-8 py-4 bg-ouroEsc text-white rounded-full hover:bg-musgo transition-colors">
             Falar agora pelo WhatsApp
           </a>
+          <ul class="mt-10 space-y-3 text-tinta/80">
+            <li><span class="text-tinta/55">WhatsApp:</span> <a data-whatsapp="Olá! Vim pelo site." href="#" target="_blank" rel="noopener" class="underline decoration-ouro/50 underline-offset-4 hover:text-ouroEsc">(19) 99192-6181</a></li>
+            <li><span class="text-tinta/55">Instagram:</span> <a data-instagram href="https://www.instagram.com/aureaassessoria.cps/" target="_blank" rel="noopener" class="underline decoration-ouro/50 underline-offset-4 hover:text-ouroEsc">@aureaassessoria.cps</a></li>
+            <li><span class="text-tinta/55">E-mail:</span> <a data-email href="mailto:aureaassessoria@gmail.com" class="underline decoration-ouro/50 underline-offset-4 hover:text-ouroEsc break-all">aureaassessoria@gmail.com</a></li>
+          </ul>
         </div>
 
         <form id="formContato" class="bg-[#FCFAF5]/80 text-tinta border border-ouro/50 rounded-[2rem] p-7 sm:p-10 space-y-5" novalidate>
@@ -311,9 +316,9 @@
       <div>
         <p class="text-tinta mb-3">Fale com a gente</p>
         <ul class="space-y-2">
-          <li><a data-whatsapp="Olá! Vim pelo site." href="#" target="_blank" rel="noopener" class="hover:text-ouro">WhatsApp</a></li>
-          <li><a id="linkInstagram" href="#" target="_blank" rel="noopener" class="hover:text-ouro">Instagram</a></li>
-          <li><a id="linkEmail" href="#" class="hover:text-ouro">E-mail</a></li>
+          <li>WhatsApp: <a data-whatsapp="Olá! Vim pelo site." href="#" target="_blank" rel="noopener" class="underline decoration-ouro/50 underline-offset-4 hover:text-ouro">(19) 99192-6181</a></li>
+          <li>Instagram: <a data-instagram href="https://www.instagram.com/aureaassessoria.cps/" target="_blank" rel="noopener" class="underline decoration-ouro/50 underline-offset-4 hover:text-ouro">@aureaassessoria.cps</a></li>
+          <li>E-mail: <a data-email href="mailto:aureaassessoria@gmail.com" class="underline decoration-ouro/50 underline-offset-4 hover:text-ouro break-all">aureaassessoria@gmail.com</a></li>
         </ul>
       </div>
     </div>
@@ -332,17 +337,17 @@
   <script>
     /* ========= CONFIGURAÇÃO — edite aqui ========= */
     const CONFIG = {
-      whatsapp: '5500000000000',                 // DDI + DDD + número, só dígitos
-      instagram: 'https://instagram.com/seuperfil',
-      email: 'contato@seudominio.com.br',
+      whatsapp: '5519991926181',                 // DDI + DDD + número, só dígitos
+      instagram: 'https://www.instagram.com/aureaassessoria.cps/',
+      email: 'aureaassessoria@gmail.com',
     };
 
     // Links de WhatsApp com mensagem pré-preenchida
     document.querySelectorAll('[data-whatsapp]').forEach(el => {
       el.href = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(el.dataset.whatsapp)}`;
     });
-    document.getElementById('linkInstagram').href = CONFIG.instagram;
-    document.getElementById('linkEmail').href = `mailto:${CONFIG.email}`;
+    document.querySelectorAll('[data-instagram]').forEach(el => { el.href = CONFIG.instagram; });
+    document.querySelectorAll('[data-email]').forEach(el => { el.href = `mailto:${CONFIG.email}`; });
     document.getElementById('ano').textContent = new Date().getFullYear();
 
     // Menu mobile
