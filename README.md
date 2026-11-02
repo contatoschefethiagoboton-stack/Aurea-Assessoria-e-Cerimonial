@@ -9,6 +9,7 @@ assets/logo-aurea.png logo com fundo transparente
 assets/favicon.svg    ícone da aba do navegador
 render.yaml           configuração para o Render
 robots.txt            libera o site para o Google
+sitemap.xml           mapa do site para o Google
 ```
 
 ## Antes de publicar
@@ -17,7 +18,7 @@ Os contatos já estão configurados no bloco `CONFIG` perto do fim do `index.htm
 - `instagram`: link do perfil
 - `email`: e-mail de contato
 
-Depois que o site estiver no ar, troque `SEU-DOMINIO.onrender.com` na tag `og:image` pelo endereço real.
+O domínio `aureaassessoria.com.br` já está configurado no `index.html` (canonical e tags de compartilhamento), no `robots.txt` e no `sitemap.xml`.
 
 ## Publicar no GitHub
 1. Crie um repositório novo em github.com (ex.: `aurea-site`).
@@ -30,5 +31,9 @@ Depois que o site estiver no ar, troque `SEU-DOMINIO.onrender.com` na tag `og:im
 
 (Alternativa: **New → Blueprint** usa o `render.yaml` automaticamente.)
 
-## Domínio próprio
-No Render, abra o site → **Settings → Custom Domains**, adicione o domínio e copie os registros DNS indicados para o painel onde o domínio foi registrado (ex.: Registro.br).
+## Domínio próprio (aureaassessoria.com.br)
+1. No Render, abra o site → **Settings → Custom Domains → Add Custom Domain** e digite `aureaassessoria.com.br`. O Render adiciona também o `www.aureaassessoria.com.br` e redireciona o www para o domínio principal.
+2. No Registro.br, abra o domínio → **DNS → Editar zona** (se aparecer "Configurar endereçamento", escolha usar os servidores DNS do Registro.br) e crie:
+   - Tipo **A**, nome em branco (`@`), valor: o IP que o Render mostrar para o domínio principal.
+   - Tipo **CNAME**, nome `www`, valor: o endereço `.onrender.com` do seu site (o Render mostra qual).
+3. Volte ao Render e clique em **Verify**. A propagação pode levar de minutos a algumas horas; o certificado HTTPS (cadeado) é emitido automaticamente.
