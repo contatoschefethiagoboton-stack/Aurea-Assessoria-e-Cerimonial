@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Áurea Assessoria de Eventos — Seu evento conduzido com cuidado do primeiro dia ao último brinde</title>
+  <meta name="theme-color" content="#F8F4EC" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <!-- Compartilhamento (WhatsApp, Facebook, Instagram). Troque o domínio quando tiver o endereço final. -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Áurea Assessoria de Eventos" />
+  <meta property="og:description" content="Assessoria completa, parcial e do dia para casamentos e eventos sociais. Toda festa começa com uma história." />
+  <meta property="og:image" content="https://SEU-DOMINIO.onrender.com/assets/logo-aurea.png" />
+  <meta name="description" content="Assessoria completa, parcial e do dia para casamentos, aniversários e eventos sociais. Curadoria de fornecedores, gestão de contratos, cronograma e cerimonial impecável." />
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind (CDN). Em produção, prefira o build com PostCSS/CLI. -->
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            garrafa: '#1E1A15',   // preto quente (títulos)
+            musgo:   '#1E1A15',   // preto quente (hover dos botões)
+            ouro:    '#A0743A',   // dourado envelhecido acetinado
+            ouroEsc: '#86602D',   // dourado profundo (botões, contraste)
+            manteiga:'#EFDFA6',   // amarelo manteiga (pequenos detalhes)
+            papel:   '#F8F4EC',   // off-white papel algodão
+            tinta:   '#1E1A15',   // texto preto quente
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['Jost', 'system-ui', 'Segoe UI', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    :root { padding-top: env(safe-area-inset-top, 0px); }
+    body {
+      -webkit-font-smoothing: antialiased;
+      background-color: #F8F4EC;
+      /* Textura de papel algodão gerada em SVG (sem imagens externas) */
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .55  0 0 0 0 .47  0 0 0 0 .36  0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E"),
+                        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 .62  0 0 0 0 .52  0 0 0 0 .38  0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
+    }
+    ::selection { background: #EFDFA6; color: #1E1A15; }
+    :focus-visible { outline: 2px solid #A0743A; outline-offset: 3px; }
+    /* Ornamento da identidade: linha · estrela · linha */
+    .ornamento { display: flex; align-items: center; gap: 1rem; color: #A0743A; }
+    .ornamento::before, .ornamento::after { content: ""; height: 1px; flex: 1; background: currentColor; opacity: .6; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+</head>
+
+<body class="bg-papel text-tinta font-sans font-light">
+
+  <!-- ============ NAVEGAÇÃO ============ -->
+  <header class="sticky top-0 z-40 bg-papel/85 backdrop-blur border-b border-ouro/30">
+    <nav class="max-w-6xl mx-auto px-5 lg:px-8 h-16 flex items-center justify-between" aria-label="Principal">
+      <a href="#inicio" class="font-display text-3xl text-ouro tracking-wide">Áurea</a>
+
+      <ul class="hidden md:flex items-center gap-8 text-sm">
+        <li><a href="#sobre" class="hover:text-ouro">Quem somos</a></li>
+        <li><a href="#assessorias" class="hover:text-ouro">Assessorias</a></li>
+        <li><a href="#diferenciais" class="hover:text-ouro">Diferenciais</a></li>
+        <li><a href="#experiencia" class="hover:text-ouro">Como funciona</a></li>
+        <li><a href="#contato" class="px-5 py-2.5 bg-ouroEsc text-white rounded-full hover:bg-musgo">Solicitar orçamento</a></li>
+      </ul>
+
+      <button id="btnMenu" class="md:hidden p-2 text-garrafa" aria-expanded="false" aria-controls="menuMobile" aria-label="Abrir menu">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </nav>
+    <div id="menuMobile" class="md:hidden hidden border-t border-ouro/30 bg-papel">
+      <ul class="px-5 py-4 space-y-3 text-base">
+        <li><a href="#sobre" class="block py-1">Quem somos</a></li>
+        <li><a href="#assessorias" class="block py-1">Assessorias</a></li>
+        <li><a href="#diferenciais" class="block py-1">Diferenciais</a></li>
+        <li><a href="#experiencia" class="block py-1">Como funciona</a></li>
+        <li><a href="#contato" class="block py-3 text-center bg-ouroEsc text-white rounded-full">Solicitar orçamento</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ A. HERO ============ -->
+    <section id="inicio" class="max-w-6xl mx-auto px-5 lg:px-8 pt-12 pb-20 lg:pt-16 lg:pb-28 text-center">
+      <div class="max-w-3xl mx-auto">
+        <img src="assets/logo-aurea.png" alt="Áurea — Assessoria de Eventos" fetchpriority="high" width="900" height="464" class="w-full max-w-[560px] mx-auto h-auto" />
+        <h1 class="mt-12 font-display font-light text-garrafa text-[2.4rem] leading-[1.08] sm:text-5xl lg:text-6xl">
+          Você vive cada momento.<br class="hidden sm:block" /> Nós cuidamos de todos eles.
+        </h1>
+        <p class="mt-7 text-lg leading-relaxed max-w-xl mx-auto text-tinta/80">
+          A assessoria certa transforma a sua história em um evento que acontece exatamente como foi sonhado — com fornecedores escolhidos a dedo, contratos sob controle e um cerimonial que conduz cada minuto para que você só precise estar presente.
+        </p>
+        <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+          <a data-whatsapp="Olá! Gostaria de agendar uma reunião para falar sobre o meu evento." href="#" target="_blank" rel="noopener"
+             class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-ouroEsc text-white rounded-full text-base hover:bg-musgo transition-colors">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.3-.5 0-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 .9c.3.2.5.2.5.4.1.1.1.7-.1 1.3Z"/></svg>
+            Agende uma reunião
+          </a>
+          <a href="#assessorias" class="inline-flex items-center justify-center px-8 py-4 border border-ouro text-tinta rounded-full hover:bg-manteiga hover:border-manteiga transition-colors">
+            Conheça as assessorias
+          </a>
+        </div>
+        <div class="ornamento mt-16 max-w-md mx-auto" aria-hidden="true"><span class="text-lg">✦</span></div>
+      </div>
+    </section>
+
+    <!-- ============ B. SOBRE ============ -->
+    <section id="sobre" class=" text-tinta border-y border-ouro/40">
+      <div class="max-w-6xl mx-auto px-5 lg:px-8 py-20 lg:py-28 grid lg:grid-cols-12 gap-12">
+        <h2 class="lg:col-span-5 font-display font-light text-4xl sm:text-5xl leading-tight">
+          Toda festa começa com uma história. Nosso papel é ajudar a construir cada capítulo, com carinho e dedicação.
+        </h2>
+        <div class="lg:col-span-7 space-y-6 text-lg leading-relaxed text-tinta/80">
+          <p>Somos uma assessoria e cerimonial dedicada a casamentos, aniversários, bodas e eventos sociais. Antes de falar de fornecedores ou de orçamento, queremos entender quem vocês são, o que importa para a família e como imaginam esse dia.</p>
+          <p>A partir disso, conectamos cada decisão à sua história e assumimos a parte trabalhosa: comparar propostas, revisar contratos, alinhar prazos e coordenar dezenas de profissionais para que tudo aconteça na hora certa.</p>
+          <div class="grid sm:grid-cols-3 gap-6 pt-6">
+            <div class="border-t border-ouro pt-4"><p class="font-display text-2xl text-tinta">Tranquilidade</p><p class="text-sm mt-2 text-tinta/65">Você acompanha cada etapa sem carregar o peso da organização.</p></div>
+            <div class="border-t border-ouro pt-4"><p class="font-display text-2xl text-tinta">Segurança</p><p class="text-sm mt-2 text-tinta/65">Contratos revisados, prazos fiscalizados e entregas garantidas.</p></div>
+            <div class="border-t border-ouro pt-4"><p class="font-display text-2xl text-tinta">Excelência</p><p class="text-sm mt-2 text-tinta/65">Gestão profissional do primeiro contato ao último convidado.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ C. MODALIDADES ============ -->
+    <section id="assessorias" class="max-w-6xl mx-auto px-5 lg:px-8 py-20 lg:py-28">
+      <div class="max-w-2xl">
+        <h2 class="font-display font-light text-garrafa text-4xl sm:text-5xl leading-tight">Três formas de caminhar com a gente</h2>
+        <p class="mt-5 text-lg text-tinta/75 leading-relaxed">Cada evento está em um momento diferente. Escolha o nível de acompanhamento que faz sentido para o seu — e, se tiver dúvida, a gente ajuda a decidir na primeira reunião.</p>
+      </div>
+
+      <div class="mt-14 grid lg:grid-cols-3 gap-6 items-stretch">
+        <!-- Completa (destaque) -->
+        <article class="relative flex flex-col bg-[#FCFAF5]/80 text-tinta border-2 border-ouro rounded-[2rem] p-8 lg:p-10 lg:-mt-4 lg:mb-4 shadow-[0_30px_60px_-30px_rgba(160,116,58,.45)]">
+          <span class="absolute -top-3 left-8 bg-manteiga text-tinta text-xs px-3 py-1 rounded-full">Mais escolhida</span>
+          <h3 class="font-display text-3xl">Assessoria Completa</h3>
+          <p class="mt-3 text-tinta/70">Do zero ao pós-festa. Para quem quer viver o noivado ou o planejamento sem preocupações.</p>
+          <ul class="mt-8 space-y-3 text-sm flex-1">
+            <li class="flex gap-3"><span class="text-ouro">◆</span>Definição e acompanhamento do orçamento</li>
+            <li class="flex gap-3"><span class="text-ouro">◆</span>Criação do conceito visual do evento</li>
+            <li class="flex gap-3"><span class="text-ouro">◆</span>Curadoria e negociação de 100% dos fornecedores</li>
+            <li class="flex gap-3"><span class="text-ouro">◆</span>Gestão completa do cronograma de planejamento</li>
+            <li class="flex gap-3"><span class="text-ouro">◆</span>RSVP — confirmação ativa e passiva de presença</li>
+            <li class="flex gap-3"><span class="text-ouro">◆</span>Ensaios de protocolo e cortejo</li>
+            <li class="flex gap-3"><span class="text-ouro">◆</span>Execução total e cerimonial no dia</li>
+          </ul>
+          <a data-whatsapp="Olá! Tenho interesse na Assessoria Completa. Podemos conversar?" href="#" target="_blank" rel="noopener"
+             class="mt-10 text-center px-6 py-3.5 bg-ouroEsc text-white rounded-full hover:bg-musgo transition-colors">Quero a Assessoria Completa</a>
+        </article>
+
+        <!-- Parcial -->
+        <article class="flex flex-col bg-[#FCFAF5]/80 border border-ouro/40 rounded-[2rem] p-8 lg:p-10">
+          <h3 class="font-display text-3xl text-garrafa">Assessoria Parcial</h3>
+          <p class="mt-3 text-tinta/75">Para quem já começou o planejamento, mas quer apoio profissional para seguir com segurança.</p>
+          <ul class="mt-8 space-y-3 text-sm flex-1">
+            <li class="flex gap-3"><span class="text-ouro">◆</span>Revisão dos fornecedores já contratados</li>
+            <li class="flex gap-3"><span class="text-ouro">◆</span>Indicação dos parceiros que ainda faltam</li>
+            <li class="flex gap-3"><span class="text-ouro">◆</span>Alinhamento logístico entre equipes</li>
+            <li class="flex gap-3"><span class="text-ouro">◆</span>Construção do cronograma final</li>
+            <li class="flex gap-3"><span class="text-ouro">◆</span>Cerimonial completo no dia</li>
+          </ul>
+          <a data-whatsapp="Olá! Já comecei a planejar meu evento e tenho interesse na Assessoria Parcial." href="#" target="_blank" rel="noopener"
+             class="mt-10 text-center px-6 py-3.5 border border-ouro text-tinta rounded-full hover:bg-manteiga hover:border-manteiga transition-colors">Quero a Assessoria Parcial</a>
+        </article>
+
+        <!-- Do dia -->
+        <article class="flex flex-col bg-[#FCFAF5]/80 border border-ouro/40 rounded-[2rem] p-8 lg:p-10">
+          <h3 class="font-display text-3xl text-garrafa">Assessoria do Dia</h3>
+          <p class="mt-3 text-tinta/75">Cerimonial e logística. Entramos nos últimos 30 a 60 dias e assumimos o comando absoluto do grande dia.</p>
+          <ul class="mt-8 space-y-3 text-sm flex-1">
+            <li class="flex gap-3"><span class="text-ouro">◆</span>Vistoria de contratos e entregas</li>
+            <li class="flex gap-3"><span class="text-ouro">◆</span>Alinhamento com todos os fornecedores</li>
+            <li class="flex gap-3"><span class="text-ouro">◆</span>Ensaios de protocolo (cortejo e cerimônia)</li>
+            <li class="flex gap-3"><span class="text-ouro">◆</span>Acompanhamento de toda a montagem</li>
+            <li class="flex gap-3"><span class="text-ouro">◆</span>Controle do cronograma durante o evento</li>
+          </ul>
+          <a data-whatsapp="Olá! Meu evento está próximo e tenho interesse na Assessoria do Dia." href="#" target="_blank" rel="noopener"
+             class="mt-10 text-center px-6 py-3.5 border border-ouro text-tinta rounded-full hover:bg-manteiga hover:border-manteiga transition-colors">Quero a Assessoria do Dia</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ D. DIFERENCIAIS ============ -->
+    <section id="diferenciais" class=" border-y border-ouro/40">
+      <div class="max-w-6xl mx-auto px-5 lg:px-8 py-20 lg:py-28">
+        <h2 class="font-display font-light text-garrafa text-4xl sm:text-5xl leading-tight max-w-2xl">O que fazemos para o seu evento dar certo</h2>
+        <div class="mt-14 grid md:grid-cols-2 gap-x-14 gap-y-12">
+          <div class="flex gap-6">
+            <svg class="shrink-0 text-ouro bg-manteiga/60 rounded-full p-2.5" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9Z"/></svg>
+            <div><h3 class="font-display text-2xl text-garrafa">Curadoria dos melhores fornecedores</h3><p class="mt-2 leading-relaxed text-tinta/80">Selecionamos com critério buffet, decoração, iluminação, som e fotografia, sempre ajustados ao perfil do evento e ao seu orçamento. Indicamos quem já vimos entregar.</p></div>
+          </div>
+          <div class="flex gap-6">
+            <svg class="shrink-0 text-ouro bg-manteiga/60 rounded-full p-2.5" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg>
+            <div><h3 class="font-display text-2xl text-garrafa">Gestão de contratos e logística</h3><p class="mt-2 leading-relaxed text-tinta/80">Revisamos cláusulas, acompanhamos prazos e cobramos cada entrega prometida. Se algo sair do combinado, resolvemos antes que chegue até você.</p></div>
+          </div>
+          <div class="flex gap-6">
+            <svg class="shrink-0 text-ouro bg-manteiga/60 rounded-full p-2.5" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            <div><h3 class="font-display text-2xl text-garrafa">Protocolo e cronograma</h3><p class="mt-2 leading-relaxed text-tinta/80">Organizamos o tempo da recepção, do cortejo, da cerimônia e de cada momento marcante, para que a festa flua sem pausas nem correria.</p></div>
+          </div>
+          <div class="flex gap-6">
+            <svg class="shrink-0 text-ouro bg-manteiga/60 rounded-full p-2.5" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/></svg>
+            <div><h3 class="font-display text-2xl text-garrafa">Gestão financeira e RSVP</h3><p class="mt-2 leading-relaxed text-tinta/80">Controlamos custos e o fluxo de pagamentos a fornecedores, e fazemos a confirmação de presença ativa e passiva — você sabe exatamente quem vem.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ E. PASSO A PASSO ============ -->
+    <section id="experiencia" class="max-w-6xl mx-auto px-5 lg:px-8 py-20 lg:py-28">
+      <h2 class="font-display font-light text-garrafa text-4xl sm:text-5xl leading-tight max-w-2xl">Como funciona a experiência</h2>
+      <ol class="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-10 relative">
+        <li class="relative">
+          <span class="inline-grid place-items-center w-16 h-16 rounded-full bg-manteiga/60 font-display text-4xl text-ouro leading-none">1</span>
+          <h3 class="mt-4 font-display text-2xl text-garrafa">Primeiro contato</h3>
+          <p class="mt-2 text-sm leading-relaxed text-tinta/75">Uma reunião sem compromisso para ouvir a sua história, entender expectativas, data, local e estilo do evento.</p>
+        </li>
+        <li class="relative">
+          <span class="inline-grid place-items-center w-16 h-16 rounded-full bg-manteiga/60 font-display text-4xl text-ouro leading-none">2</span>
+          <h3 class="mt-4 font-display text-2xl text-garrafa">Planejamento e curadoria</h3>
+          <p class="mt-2 text-sm leading-relaxed text-tinta/75">Definimos juntos o formato de assessoria ideal e começamos a seleção dos fornecedores certos para o seu perfil.</p>
+        </li>
+        <li class="relative">
+          <span class="inline-grid place-items-center w-16 h-16 rounded-full bg-manteiga/60 font-display text-4xl text-ouro leading-none">3</span>
+          <h3 class="mt-4 font-display text-2xl text-garrafa">Alinhamento e ensaios</h3>
+          <p class="mt-2 text-sm leading-relaxed text-tinta/75">Ajustamos o cronograma minuto a minuto, alinhamos todas as equipes e ensaiamos protocolos e cortejo.</p>
+        </li>
+        <li class="relative">
+          <span class="inline-grid place-items-center w-16 h-16 rounded-full bg-manteiga/60 font-display text-4xl text-ouro leading-none">4</span>
+          <h3 class="mt-4 font-display text-2xl text-garrafa">O grande dia</h3>
+          <p class="mt-2 text-sm leading-relaxed text-tinta/75">Acompanhamos a montagem, fiscalizamos cada entrega e conduzimos o cerimonial do início ao fim. Você só aproveita.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ============ F. CTA FINAL + FORMULÁRIO ============ -->
+    <section id="contato" class=" text-tinta border-t border-ouro/40">
+      <div class="max-w-6xl mx-auto px-5 lg:px-8 py-20 lg:py-28 grid lg:grid-cols-2 gap-14 items-start">
+        <div>
+          <h2 class="font-display font-light text-4xl sm:text-5xl leading-tight">Vamos conversar sobre o seu evento?</h2>
+          <p class="mt-6 text-lg leading-relaxed text-tinta/70 max-w-md">Conte um pouco sobre a sua data e o tipo de celebração. Respondemos pelo WhatsApp com os próximos passos e uma proposta sob medida.</p>
+          <p class="mt-6 text-sm text-tinta/55 max-w-md">Atendemos um número limitado de eventos por fim de semana para garantir dedicação total. Consulte a disponibilidade da sua data.</p>
+          <a data-whatsapp="Olá! Gostaria de consultar a disponibilidade de data para o meu evento." href="#" target="_blank" rel="noopener"
+             class="mt-10 inline-flex items-center gap-3 px-8 py-4 bg-ouroEsc text-white rounded-full hover:bg-musgo transition-colors">
+            Falar agora pelo WhatsApp
+          </a>
+        </div>
+
+        <form id="formContato" class="bg-[#FCFAF5]/80 text-tinta border border-ouro/50 rounded-[2rem] p-7 sm:p-10 space-y-5" novalidate>
+          <div>
+            <label for="nome" class="block text-sm mb-2">Nome</label>
+            <input id="nome" name="nome" required autocomplete="name" class="w-full px-4 py-3 rounded-xl border border-ouro/50 bg-[#FFFDF8] focus:border-ouro focus:ring-2 focus:ring-manteiga focus:outline-none" placeholder="Seu nome completo" />
+          </div>
+          <div class="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label for="data" class="block text-sm mb-2">Data estimada do evento</label>
+              <input id="data" name="data" type="date" class="w-full px-4 py-3 rounded-xl border border-ouro/50 bg-[#FFFDF8] focus:border-ouro focus:ring-2 focus:ring-manteiga focus:outline-none" />
+            </div>
+            <div>
+              <label for="tipo" class="block text-sm mb-2">Tipo de evento</label>
+              <select id="tipo" name="tipo" required class="w-full px-4 py-3 rounded-xl border border-ouro/50 bg-[#FFFDF8] focus:border-ouro focus:ring-2 focus:ring-manteiga focus:outline-none">
+                <option value="">Selecione</option>
+                <option>Casamento</option>
+                <option>Aniversário / 15 anos</option>
+                <option>Bodas</option>
+                <option>Batizado / Chá</option>
+                <option>Evento corporativo</option>
+                <option>Outro</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label for="telefone" class="block text-sm mb-2">Telefone / WhatsApp</label>
+            <input id="telefone" name="telefone" type="tel" required autocomplete="tel" inputmode="tel" class="w-full px-4 py-3 rounded-xl border border-ouro/50 bg-[#FFFDF8] focus:border-ouro focus:ring-2 focus:ring-manteiga focus:outline-none" placeholder="(00) 00000-0000" />
+          </div>
+          <p id="erroForm" class="hidden text-sm text-red-700" role="alert">Preencha nome, tipo de evento e telefone para enviarmos sua solicitação.</p>
+          <button type="submit" class="w-full py-4 bg-ouroEsc text-white rounded-full hover:bg-musgo transition-colors">Enviar solicitação pelo WhatsApp</button>
+          <p class="text-xs text-tinta/55 text-center">Seus dados são usados apenas para retornarmos o contato.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ RODAPÉ ============ -->
+  <footer class="text-tinta/70 border-t-2 border-ouro">
+    <div class="max-w-6xl mx-auto px-5 lg:px-8 py-14 grid md:grid-cols-3 gap-10 text-sm">
+      <div>
+        <p class="font-display text-3xl text-ouro">Áurea</p>
+        <p class="text-xs tracking-[.3em] text-ouro mt-1">ASSESSORIA DE EVENTOS</p>
+        <p class="mt-3 leading-relaxed">Assessoria e cerimonial para casamentos, aniversários e eventos sociais.</p>
+      </div>
+      <div>
+        <p class="text-tinta mb-3">Navegue</p>
+        <ul class="space-y-2">
+          <li><a href="#sobre" class="hover:text-ouro">Quem somos</a></li>
+          <li><a href="#assessorias" class="hover:text-ouro">Assessorias</a></li>
+          <li><a href="#experiencia" class="hover:text-ouro">Como funciona</a></li>
+          <li><a href="#contato" class="hover:text-ouro">Contato</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-tinta mb-3">Fale com a gente</p>
+        <ul class="space-y-2">
+          <li><a data-whatsapp="Olá! Vim pelo site." href="#" target="_blank" rel="noopener" class="hover:text-ouro">WhatsApp</a></li>
+          <li><a id="linkInstagram" href="#" target="_blank" rel="noopener" class="hover:text-ouro">Instagram</a></li>
+          <li><a id="linkEmail" href="#" class="hover:text-ouro">E-mail</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-ouro/30">
+      <p class="max-w-6xl mx-auto px-5 lg:px-8 py-6 text-xs text-tinta/50">© <span id="ano"></span> Áurea Assessoria de Eventos. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Botão flutuante de WhatsApp -->
+  <a data-whatsapp="Olá! Vim pelo site e gostaria de mais informações." href="#" target="_blank" rel="noopener" aria-label="Conversar no WhatsApp"
+     class="fixed right-5 z-50 w-14 h-14 rounded-full bg-[#25D366] text-white grid place-items-center shadow-lg hover:scale-105 transition-transform"
+     style="bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.3-.5 0-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 .9c.3.2.5.2.5.4.1.1.1.7-.1 1.3Z"/></svg>
+  </a>
+
+  <script>
+    /* ========= CONFIGURAÇÃO — edite aqui ========= */
+    const CONFIG = {
+      whatsapp: '5500000000000',                 // DDI + DDD + número, só dígitos
+      instagram: 'https://instagram.com/seuperfil',
+      email: 'contato@seudominio.com.br',
+    };
+
+    // Links de WhatsApp com mensagem pré-preenchida
+    document.querySelectorAll('[data-whatsapp]').forEach(el => {
+      el.href = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(el.dataset.whatsapp)}`;
+    });
+    document.getElementById('linkInstagram').href = CONFIG.instagram;
+    document.getElementById('linkEmail').href = `mailto:${CONFIG.email}`;
+    document.getElementById('ano').textContent = new Date().getFullYear();
+
+    // Menu mobile
+    const btnMenu = document.getElementById('btnMenu');
+    const menu = document.getElementById('menuMobile');
+    btnMenu.addEventListener('click', () => {
+      const aberto = menu.classList.toggle('hidden') === false;
+      btnMenu.setAttribute('aria-expanded', aberto);
+    });
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      menu.classList.add('hidden'); btnMenu.setAttribute('aria-expanded', 'false');
+    }));
+
+    // Formulário: envia os dados para o WhatsApp
+    document.getElementById('formContato').addEventListener('submit', e => {
+      e.preventDefault();
+      const f = e.target;
+      const nome = f.nome.value.trim(), tipo = f.tipo.value, tel = f.telefone.value.trim();
+      const erro = document.getElementById('erroForm');
+      if (!nome || !tipo || !tel) { erro.classList.remove('hidden'); return; }
+      erro.classList.add('hidden');
+      const data = f.data.value ? f.data.value.split('-').reverse().join('/') : 'a definir';
+      const msg = `Olá! Gostaria de um orçamento.\n\nNome: ${nome}\nTipo de evento: ${tipo}\nData estimada: ${data}\nTelefone: ${tel}`;
+      window.open(`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
+    });
+  </script>
+</body>
+</html>

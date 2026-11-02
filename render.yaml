@@ -1,0 +1,11 @@
+# Blueprint do Render: site estático, sem etapa de build.
+services:
+  - type: web
+    name: aurea-assessoria
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: .
+    headers:
+      - path: /assets/*
+        name: Cache-Control
+        value: public, max-age=604800
