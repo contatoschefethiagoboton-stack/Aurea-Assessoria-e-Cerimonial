@@ -12,7 +12,7 @@ robots.txt            libera o site para o Google
 ```
 
 ## Antes de publicar
-Abra `index.html` e, no bloco `CONFIG` perto do fim do arquivo, preencha:
+Os contatos já estão configurados no bloco `CONFIG` perto do fim do `index.html` (WhatsApp (19) 99192-6181, Instagram @aureaassessoria.cps, e-mail aureaassessoria@gmail.com). Para alterar, edite:
 - `whatsapp`: 55 + DDD + número, só dígitos (ex.: 5519999999999)
 - `instagram`: link do perfil
 - `email`: e-mail de contato
